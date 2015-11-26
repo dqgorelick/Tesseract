@@ -75,7 +75,7 @@ void resetShape(){
 }
 
 void moveShape() {
-  angle -= (1/speed);
+  angle -= 360/(count*)
   rotateX(angle);
   if(count == 0 || count == speed){
     resetShape();
@@ -121,77 +121,77 @@ void draw() {
 
   scale(90);
   noFill();
-  beginShape(LINES); // There is no Eulerian cycle, so we must repeat edges :(
+  beginShape(QUADS);
   // smaller cube
-  vertex(d1*x[8],d1*y[8],d1*z[8]);
-  vertex(d1*x[9],d1*y[9],d1*z[9]);
-  vertex(d1*x[9],d1*y[9],d1*z[9]);
-  vertex(d1*x[10],d1*y[10],d1*z[10]);
-  vertex(d1*x[10],d1*y[10],d1*z[10]);
-  vertex(d1*x[11],d1*y[11],d1*z[11]);
+  vertex(d1*x[12],d1*y[12],d1*z[12]);
+  vertex(d1*x[15],d1*y[15],d1*z[15]);
   vertex(d1*x[11],d1*y[11],d1*z[11]);
   vertex(d1*x[8],d1*y[8],d1*z[8]);
-
+  vertex(d1*x[15],d1*y[15],d1*z[15]);
+  vertex(d1*x[14],d1*y[14],d1*z[14]);
+  vertex(d1*x[10],d1*y[10],d1*z[10]);
+  vertex(d1*x[11],d1*y[11],d1*z[11]);
+  vertex(d1*x[14],d1*y[14],d1*z[14]);
   vertex(d1*x[13],d1*y[13],d1*z[13]);
+  vertex(d1*x[9],d1*y[9],d1*z[9]);
+  vertex(d1*x[10],d1*y[10],d1*z[10]);
+  vertex(d1*x[8],d1*y[8],d1*z[8]);
+  vertex(d1*x[9],d1*y[9],d1*z[9]);
+  vertex(d1*x[13],d1*y[13],d1*z[13]);
+  vertex(d1*x[12],d1*y[12],d1*z[12]);
   vertex(d1*x[12],d1*y[12],d1*z[12]);
   vertex(d1*x[13],d1*y[13],d1*z[13]);
   vertex(d1*x[14],d1*y[14],d1*z[14]);
-  vertex(d1*x[14],d1*y[14],d1*z[14]);
   vertex(d1*x[15],d1*y[15],d1*z[15]);
-  vertex(d1*x[15],d1*y[15],d1*z[15]);
-  vertex(d1*x[12],d1*y[12],d1*z[12]);
-
   vertex(d1*x[8],d1*y[8],d1*z[8]);
-  vertex(d1*x[12],d1*y[12],d1*z[12]);
   vertex(d1*x[9],d1*y[9],d1*z[9]);
-  vertex(d1*x[13],d1*y[13],d1*z[13]);
   vertex(d1*x[10],d1*y[10],d1*z[10]);
-  vertex(d1*x[14],d1*y[14],d1*z[14]);
   vertex(d1*x[11],d1*y[11],d1*z[11]);
-  vertex(d1*x[15],d1*y[15],d1*z[15]);
 // larger cube
   vertex(d2*x[0],d2*y[0],d2*z[0]);
   vertex(d2*x[1],d2*y[1],d2*z[1]);
+  vertex(d2*x[2],d2*y[2],d2*z[2]);
+  vertex(d2*x[3],d2*y[3],d2*z[3]);
+  vertex(d2*x[2],d2*y[2],d2*z[2]);
+  vertex(d2*x[6],d2*y[6],d2*z[6]);
+  vertex(d2*x[7],d2*y[7],d2*z[7]);
+  vertex(d2*x[3],d2*y[3],d2*z[3]);
+  vertex(d2*x[6],d2*y[6],d2*z[6]);
+  vertex(d2*x[7],d2*y[7],d2*z[7]);
+  vertex(d2*x[4],d2*y[4],d2*z[4]);
+  vertex(d2*x[5],d2*y[5],d2*z[5]);
+  vertex(d2*x[4],d2*y[4],d2*z[4]);
+  vertex(d2*x[5],d2*y[5],d2*z[5]);
+  vertex(d2*x[1],d2*y[1],d2*z[1]);
+  vertex(d2*x[0],d2*y[0],d2*z[0]);
   vertex(d2*x[1],d2*y[1],d2*z[1]);
   vertex(d2*x[2],d2*y[2],d2*z[2]);
-  vertex(d2*x[2],d2*y[2],d2*z[2]);
-  vertex(d2*x[3],d2*y[3],d2*z[3]);
-  vertex(d2*x[3],d2*y[3],d2*z[3]);
+  vertex(d2*x[6],d2*y[6],d2*z[6]);
+  vertex(d2*x[5],d2*y[5],d2*z[5]);
   vertex(d2*x[0],d2*y[0],d2*z[0]);
-
-  vertex(d2*x[4],d2*y[4],d2*z[4]);
-  vertex(d2*x[5],d2*y[5],d2*z[5]);
-  vertex(d2*x[5],d2*y[5],d2*z[5]);
-  vertex(d2*x[6],d2*y[6],d2*z[6]);
-  vertex(d2*x[6],d2*y[6],d2*z[6]);
-  vertex(d2*x[7],d2*y[7],d2*z[7]);
-  vertex(d2*x[7],d2*y[7],d2*z[7]);
-  vertex(d2*x[4],d2*y[4],d2*z[4]);
-
-  vertex(d2*x[0],d2*y[0],d2*z[0]);
-  vertex(d2*x[4],d2*y[4],d2*z[4]);
-  vertex(d2*x[1],d2*y[1],d2*z[1]);
-  vertex(d2*x[5],d2*y[5],d2*z[5]);
-  vertex(d2*x[2],d2*y[2],d2*z[2]);
-  vertex(d2*x[6],d2*y[6],d2*z[6]);
   vertex(d2*x[3],d2*y[3],d2*z[3]);
   vertex(d2*x[7],d2*y[7],d2*z[7]);
+  vertex(d2*x[4],d2*y[4],d2*z[4]);
   // cross sections
   vertex(d1*x[0],d1*y[0],d1*z[0]);
   vertex(d2*x[8],d2*y[8],d2*z[8]);
-  vertex(d1*x[1],d1*y[1],d1*z[1]);
-  vertex(d2*x[9],d2*y[9],d2*z[9]);
-  vertex(d1*x[2],d1*y[2],d1*z[2]);
-  vertex(d2*x[10],d2*y[10],d2*z[10]);
-  vertex(d1*x[3],d1*y[3],d1*z[3]);
-  vertex(d2*x[11],d2*y[11],d2*z[11]);
-  vertex(d1*x[4],d1*y[4],d1*z[4]);
   vertex(d2*x[12],d2*y[12],d2*z[12]);
+  vertex(d1*x[4],d1*y[4],d1*z[4]);
+  vertex(d1*x[1],d1*y[1],d1*z[1]);
   vertex(d1*x[5],d1*y[5],d1*z[5]);
   vertex(d2*x[13],d2*y[13],d2*z[13]);
+  vertex(d2*x[9],d2*y[9],d2*z[9]);
+  vertex(d1*x[1],d1*y[1],d1*z[1]);
+  vertex(d1*x[5],d1*y[5],d1*z[5]);
+  vertex(d2*x[13],d2*y[13],d2*z[13]);
+  vertex(d2*x[9],d2*y[9],d2*z[9]);
+  vertex(d1*x[2],d1*y[2],d1*z[2]);
   vertex(d1*x[6],d1*y[6],d1*z[6]);
   vertex(d2*x[14],d2*y[14],d2*z[14]);
+  vertex(d2*x[10],d2*y[10],d2*z[10]);
+  vertex(d1*x[3],d1*y[3],d1*z[3]);
   vertex(d1*x[7],d1*y[7],d1*z[7]);
   vertex(d2*x[15],d2*y[15],d2*z[15]);
+  vertex(d2*x[11],d2*y[11],d2*z[11]);
   endShape();
 }
