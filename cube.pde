@@ -1,37 +1,24 @@
 float d1 = 1;         // distance for inner cube
 float d2 = 1;         // distance for outer cube
-float speed = 75;     // speed for transforms and rotation
-
-int count, current = 0;
+float speed = 100;     // speed for transforms and rotation
+int frame = 0;
 float angle = 0;
-float xmag, ymag = 0;
-float newXmag, newYmag = 0;
+int count, current = 0;
 
-// change order of the pattern here
 // 0 = invert, 1 = left, 2 = down, 3 = right, 4 = up
-int [] pattern = new int[] {0,1,0,2,0,3,0,4};
+int [] pattern = new int[] {1,0};
 
-int [][][] patterns = new int[][][] {
-  {
-    {0,8},{1,9},{2,10},{3,11},{4,12},{5,13},{6,14},{7,15},
-    {8,0},{9,1},{10,2},{11,3},{12,4},{13,5},{14,6},{15,7}
-  },
-  {
-    {0,3},{1,2},{2,10},{3,11},{4,7},{5,6},{6,14},{7,15},
-    {8,0},{9,1},{10,9},{11,8},{12,4},{13,5},{14,13},{15,12}
-  },
-  {
-    {0,4},{1,5},{2,6},{3,7},{4,12},{5,13},{6,14},{7,15},
-    {8,0},{9,1},{10,2},{11,3},{12,8},{13,9},{14,10},{15,11}
-  },
-  {
-    {0,8},{1,9},{2,1},{3,0},{4,12},{5,13},{6,5},{7,4},
-    {8,11},{9,10},{10,2},{11,3},{12,15},{13,14},{14,6},{15,7}
-  },
-  {
-    {0,8},{1,9},{2,10},{3,11},{4,0},{5,1},{6,2},{7,3},
-    {8,12},{9,13},{10,14},{11,15},{12,4},{13,5},{14,6},{15,7}
-  }
+int [][][] patterns = new int[] [][] {
+  {{0,8},{1,9},{2,10},{3,11},{4,12},{5,13},{6,14},{7,15},
+    {8,0},{9,1},{10,2},{11,3},{12,4},{13,5},{14,6},{15,7}},
+  {{0,3},{1,2},{2,10},{3,11},{4,7},{5,6},{6,14},{7,15},
+    {8,0},{9,1},{10,9},{11,8},{12,4},{13,5},{14,13},{15,12}},
+  {{0,4},{1,5},{2,6},{3,7},{4,12},{5,13},{6,14},{7,15},
+    {8,0},{9,1},{10,2},{11,3},{12,8},{13,9},{14,10},{15,11}},
+  {{0,8},{1,9},{2,1},{3,0},{4,12},{5,13},{6,5},{7,4},
+    {8,11},{9,10},{10,2},{11,3},{12,15},{13,14},{14,6},{15,7}},
+  {{0,8},{1,9},{2,10},{3,11},{4,0},{5,1},{6,2},{7,3},
+    {8,12},{9,13},{10,14},{11,15},{12,4},{13,5},{14,6},{15,7}}
 };
 
 void moveVects(){
@@ -75,8 +62,8 @@ void resetShape(){
 }
 
 void moveShape() {
-  angle -= 360/(count*)
-  rotateX(angle);
+  rotateX(-PI/5);
+  rotateY((angle/speed)*(-PI/2));
   if(count == 0 || count == speed){
     resetShape();
     count = 0;
@@ -89,12 +76,16 @@ void moveShape() {
   if(count < speed){
     moveVects();
     count++;
+    angle++;
+  }
+  if(angle == speed*4){
+    angle = 0;
   }
 }
 
 void setup() {
-  // size(640,640,P3D);
-  fullScreen(P3D);
+  size(660,660,P3D);
+  // fullScreen(P3D);
   strokeWeight(0.125);
   colorMode(RGB, 1);
 }
@@ -103,21 +94,6 @@ void draw() {
   background(255, 255, 255);
   translate(width/2, height/2, -30);
   moveShape();
-
-  newXmag = mouseX/float(width) * TWO_PI;
-  newYmag = mouseY/float(height) * TWO_PI;
-  float diff = xmag-newXmag;
-  if (abs(diff) >  0.01) {
-    xmag -= diff/4.0;
-  }
-  diff = ymag-newYmag;
-  if (abs(diff) >  0.01) {
-    ymag -= diff/4.0;
-  }
-  if(mousePressed){
-    rotateX(-ymag);
-    rotateY(-xmag);
-  }
 
   scale(90);
   noFill();
@@ -194,4 +170,8 @@ void draw() {
   vertex(d2*x[15],d2*y[15],d2*z[15]);
   vertex(d2*x[11],d2*y[11],d2*z[11]);
   endShape();
+  // frame++;
+  // if(frame < 201){
+  //   saveFrame("line-#####.png");
+  // }
 }
