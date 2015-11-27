@@ -2,7 +2,7 @@ float d1 = 1;         // distance for inner cube
 float d2 = 1;         // distance for outer cube
 float speed = 100;     // speed for transforms and rotation
 int frame = 0;
-float angle = 0;
+float angle =
 int count, current = 0;
 
 // 0 = invert, 1 = left, 2 = down, 3 = right, 4 = up
